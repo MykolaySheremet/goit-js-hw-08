@@ -17,7 +17,7 @@ const parsSaveTimeArray = JSON.parse(saveTimeString);
 
 player.on("timeupdate", throttle(timeFollow, 1000))
 
-player.setCurrentTime(parsSaveTimeArray.seconds).then(function(seconds) {
+player.setCurrentTime(parsSaveTimeArray.seconds).then(function() {
     // seconds = the actual time that the player seeked to
 }).catch(function(error) {
     switch (error.name) {
