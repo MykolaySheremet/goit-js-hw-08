@@ -7,7 +7,11 @@ const refs = {
 }
 
 const STORAGE_KEYFORM = "feedback-form-state";
-const valuesOfForm = {};
+
+const valuesOfForm = {
+    email: "",
+    message: ""
+};
 
 refs.form.addEventListener('input', throttle(onInput, 500));
 refs.form.addEventListener('submit', onSubmit);
@@ -21,7 +25,10 @@ function onInput(e) {
     
 };
 
+console.log(valuesOfForm);
+
 function lastInputMassage(e) {
+
     const saveMassageString = localStorage.getItem(STORAGE_KEYFORM);
     const saveMassageArray = JSON.parse(saveMassageString);
 
