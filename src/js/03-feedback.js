@@ -7,28 +7,26 @@ const refs = {
 }
 
 const STORAGE_KEYFORM = "feedback-form-state";
-
 const valuesOfForm = {
-    email: "",
-    message: ""
+    email: '',
+    message: '',
 };
 
 refs.form.addEventListener('input', throttle(onInput, 500));
 refs.form.addEventListener('submit', onSubmit);
 
-
 lastInputMassage()
 
 function onInput(e) {
-    valuesOfForm[e.target.name] = e.target.value
+
+    valuesOfForm.email = refs.email.value
+    valuesOfForm.message = refs.textarea.value
     localStorage.setItem(STORAGE_KEYFORM, JSON.stringify(valuesOfForm));
     
 };
 
-console.log(valuesOfForm);
 
 function lastInputMassage(e) {
-
     const saveMassageString = localStorage.getItem(STORAGE_KEYFORM);
     const saveMassageArray = JSON.parse(saveMassageString);
 
@@ -45,6 +43,7 @@ function onSubmit(e) {
     console.log(valuesOfForm);
     localStorage.removeItem(STORAGE_KEYFORM);
 };
+
 
 
 
